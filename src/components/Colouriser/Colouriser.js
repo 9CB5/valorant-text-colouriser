@@ -18,17 +18,36 @@ export class Colouriser extends Component {
     }
 
     colouriseMultipleHandler = () => {
+        // if (this.state.text !== '') {
+        //     const textToSplit = this.state.text;
+        //     const arrayWords = textToSplit.split(' ');
+            
+        //     const mappedWords = arrayWords.map(
+        //         (word) => {
+        //             return this.getRandomTag() + word + '</>';
+        //         }
+        //     );
+
+        //     this.copyToClipboardHandler(mappedWords.join(' '));
+        // }
+
         if (this.state.text !== '') {
             const textToSplit = this.state.text;
             const arrayWords = textToSplit.split(' ');
-            
-            const mappedWords = arrayWords.map(
-                (word) => {
-                    return this.getRandomTag() + word + '</>';
+        
+            arrayWords.forEach(
+                (word, index) => {
+                    const chars = word.split('');
+                    chars.forEach(
+                        (char, index) => {
+                            chars[index] = this.getRandomTag() + char + '</>';
+                        }
+                    );
+                    arrayWords[index] = chars.join('');
                 }
             );
 
-            this.copyToClipboardHandler(mappedWords.join(' '));
+            this.copyToClipboardHandler(arrayWords.join(' '));
         }
     }
 

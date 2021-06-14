@@ -20,6 +20,7 @@
 .buttons {
     padding-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
     width: 70%;
@@ -61,8 +62,8 @@
 @media only screen and (max-width: 500px) {
 
     .buttons {
-        flex-direction: column;
         align-items: center;
+        flex-wrap: wrap;
     }
 }
 
